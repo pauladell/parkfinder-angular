@@ -1,0 +1,27 @@
+<ul class="list-group text-info">
+  <li [ngClass]="
+      where == 'index'
+        ? 'list-group-item active text-light rounded'
+        : 'list-group-item border-0'
+    " (click)="current_is_index()">
+    <span>Index</span>
+  </li>
+  <li [ngClass]="
+      where == 'coupons'
+        ? 'list-group-item active text-light rounded'
+        : 'list-group-item border-0'
+    " (click)="current_is_coupons()">
+    <span [ngClass]="{ isactive: where == 'coupons' }">Coupons</span>
+  </li>
+  <li [ngClass]="
+      where == 'contact'
+        ? 'list-group-item active text-light rounded'
+        : 'list-group-item border-0'
+    " (click)="current_is_contact()">
+    <span>Contact</span>
+  </li>
+  <li *ngIf="IsLoggedIn=='true'" [ngClass]=" where=='profile' ? 'list-group-item active text-light rounded'
+    : 'list-group-item border-0' " (click)=" current_is_profile()">
+    <span>Profile</span>
+  </li>
+</ul>

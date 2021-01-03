@@ -1,0 +1,61 @@
+$theme-colors: ("info": #e06457,
+);
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+  background: url("../../assets/img/parkinglott.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.box {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  padding: 60px 90px 60px 90px;
+  color: white;
+
+  margin: {
+    top: 40px;
+    bottom: 40px;
+  }
+}
+
+.parkfinder {
+  height: 100px;
+
+  padding: {
+    top: 30px;
+    bottom: 30px;
+  }
+
+  margin: {
+    bottom: 40px;
+  }
+}
+
+/*.headrow {
+  padding: {
+    top: 80px;
+  }
+  height: 40px;
+  width: 70px;
+  background-color: #e06457;
+}*/
+
+.formdiv {
+  padding: {
+    left: 20%;
+    right: 20%;
+    top: 10%;
+  }
+}
+
+.rowform {
+  padding: {
+    top: 20px;
+  }
+}

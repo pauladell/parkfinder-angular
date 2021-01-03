@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+$theme-colors: ("info": #ef8275,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.jumbotron {
+  background-image: url("assets/img/Untitled.png");
+  background-size: cover;
+  height: 350px;
+  vertical-align: middle;
+
+  /*margin: 0px;*/
+}
+
+list-group {
+  border: 0px;
+}
+
+a {
+  color: #ef8275;
+}
+
+a:visited {
+  color: inherit;
+}
+
+img.headerphoto {
+  width: 200px;
+}
+
+.list-group-item.active {
+
+
+  background-color: #ef8275;
+  border-color: #ef8275;
+}
+
+.isactive {
+  color: #ffffff;
+
+}
+
+.footerdiv {
+  height: 70px;
+  padding-top: 20px;
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+}

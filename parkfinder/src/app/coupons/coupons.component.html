@@ -1,0 +1,10 @@
+<div class="row" id="div-for-coupons">
+  <article class="col-md-6 col-lg-4 text-center" *ngFor="let i of array_coupons">
+    <card class="card">
+      <img class="card-img-top" [src]="i.src" [alt]="i.alt">
+      <div class="card-body">
+        <p class="card-text">{{i.content}}</p>
+        <a href="#" class="btn btn-info">{{i.link_name}}</a>
+      </div>
+    </card>
+  </article>
