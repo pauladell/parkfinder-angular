@@ -13,23 +13,26 @@
                                    <div class="collapse navbar-collapse bg-light justify-content-end" id="mimenu">
 
                                      <ul class="navbar-nav">
+                                       <!--Signup and Login buttons are hidden when the user is logged in-->
                                        <li class="nav-item active  show-at-logged-out"
                                          [ngClass]=" {'d-none' : IsLoggedIn=='true'}">
-                                         <a class="nav-link" (click)=signup($event) href="#">Sign up </a>
+                                         <a class="nav-link" (click)=login_logout($event) href="#">Sign up </a>
                                        </li>
 
                                        <li class="nav-item  show-at-logged-out"
                                          [ngClass]=" {'d-none' : IsLoggedIn=='true'}">
-                                         <a class="nav-link" id="login_button" href="#" (click)=login($event)>Log in</a>
+                                         <a class="nav-link" id="login_button" href="#" (click)=login_logout($event)>Log
+                                           in</a>
                                        </li>
-
+                                       <!--Signup and Login buttons are hidden when the user is logged out or signing up-->
                                        <li class="nav-item show-at-logged-in"
                                          [ngClass]=" {'d-none' : IsLoggedIn!=='true'}">
                                          {{cliente.inputname}} {{cliente.inputsurname}}
                                        </li>
                                        <li class="nav-item  show-at-logged-in "
                                          [ngClass]=" {'d-none' : IsLoggedIn!=='true'}">
-                                         <a class=" nav-link" id="logout_button" href="#" (click)=logout($event)>Log
+                                         <a class=" nav-link" id="logout_button" href="#"
+                                           (click)=login_logout($event)>Log
                                            out</a>
 
                                        </li>

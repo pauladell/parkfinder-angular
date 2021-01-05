@@ -10,3 +10,7 @@
     Environment Class <input [(ngModel)]="cliente.inputenv"><br>
   </div>
 </div>
+
+<div *ngFor="let item of cliente | keyvalue">
+  Key: <b>{{item.key}}</b> Value: <b>{{item.value}}</b>
+</div>

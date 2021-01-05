@@ -1,27 +1,30 @@
 <ul class="list-group text-info">
+  <!--Classes are added to the li tags depending on the value of the "where" variable-->
+  <!--The click event is sent to the current function-->
   <li [ngClass]="
-      where == 'index'
+      where == 'Index'
         ? 'list-group-item active text-light rounded'
         : 'list-group-item border-0'
-    " (click)="current_is_index()">
+    " (click)="current($event)">
     <span>Index</span>
   </li>
   <li [ngClass]="
-      where == 'coupons'
+      where == 'Coupons'
         ? 'list-group-item active text-light rounded'
         : 'list-group-item border-0'
-    " (click)="current_is_coupons()">
-    <span [ngClass]="{ isactive: where == 'coupons' }">Coupons</span>
+    " (click)="current($event)">
+    <span [ngClass]="{ isactive: where == 'Coupons' }">Coupons</span>
   </li>
   <li [ngClass]="
-      where == 'contact'
+      where == 'Contact'
         ? 'list-group-item active text-light rounded'
         : 'list-group-item border-0'
-    " (click)="current_is_contact()">
+    " (click)="current($event)">
     <span>Contact</span>
   </li>
-  <li *ngIf="IsLoggedIn=='true'" [ngClass]=" where=='profile' ? 'list-group-item active text-light rounded'
-    : 'list-group-item border-0' " (click)=" current_is_profile()">
+  <!--Display the "profile" tab if IsLoggedIn is "true"-->
+  <li *ngIf="IsLoggedIn=='true'" [ngClass]=" where=='Profile' ? 'list-group-item active text-light rounded'
+    : 'list-group-item border-0' " (click)="current($event)">
     <span>Profile</span>
   </li>
 </ul>

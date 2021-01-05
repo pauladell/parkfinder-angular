@@ -16,153 +16,171 @@
         </div>
       </div>
       <section class="formdiv">
-        <form class="" class="form-control" method="post" value="">
+        <!--<form class="" class="form-control" method="post" value="">
+        -->
 
-          <div class="row rowform">
-            <div class="col-3 self-center-align">
-              <label for="inputname">Name</label>
-            </div>
-            <div class="col-9 self-center-align">
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputname" name="name" placeholder="Enter Name" />
-              </div>
+        <div class="row rowform">
+          <div class="col-3 self-center-align">
+            <label for="inputname">Name</label>
+          </div>
+          <div class="col-9 self-center-align">
+            <div class="form-group">
+              <input type="text" class="form-control" [formControl]="name" id="inputname" name="name"
+                placeholder="Enter Name" />
+              <small *ngIf="name.hasError('required') && name.dirty">This field is required</small>
+              <small *ngIf="name.hasError('minlength') && name.dirty">Doesnt meet min length</small>
             </div>
           </div>
+        </div>
 
-          <div class="row rowform align-items-center">
-            <div class="col-3">
-              <label for="inputsurname">Surname</label>
-            </div>
-            <div class="col-9">
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputsurname" name="surname" placeholder="Enter Surname" />
-              </div>
+        <div class="row rowform align-items-center">
+          <div class="col-3">
+            <label for="inputsurname">Surname</label>
+          </div>
+          <div class="col-9">
+            <div class="form-group">
+              <input type="text" [formControl]="surname" class="form-control" id="inputsurname" name="surname"
+                placeholder="Enter Surname" />
+              <small *ngIf="surname.hasError('required') && surname.dirty">This field is required</small>
+              <small *ngIf="surname.hasError('minlength') && surname.dirty">Doesnt meet min length</small>
             </div>
           </div>
+        </div>
 
-
-          <div class="row rowform align-items-center">
-            <div class="col-3">
-              <label for="inputemail">Email</label>
-            </div>
-            <div class="col-9">
-              <div class="form-group">
-                <input type="email" class="form-control" id="inputemail" name="email" placeholder="Enter email" />
-              </div>
+        <div class="row rowform align-items-center">
+          <div class="col-3">
+            <label for="inputemail">Email</label>
+          </div>
+          <div class="col-9">
+            <div class="form-group">
+              <input type="email" (change)="getEmail($event)" [formControl]="emailCtrl" class="form-control"
+                id="inputemail" name="email" placeholder="Enter email" />
+              <small *ngIf="emailCtrl.hasError('required') && emailCtrl.dirty">This field is required</small>
+              <small *ngIf="emailCtrl.hasError('pattern') && emailCtrl.dirty">Not a valid email</small>
             </div>
           </div>
+        </div>
 
-
-          <div class="row rowform align-items-center">
-            <div class="col-3">
-              <label for="password">Password</label>
-            </div>
-            <div class="col-9">
-              <div class="form-group">
-                <input type="text" class="form-control" id="password" name="password" placeholder="Enter password" />
-              </div>
+        <div class="row rowform align-items-center">
+          <div class="col-3">
+            <label for="password">Password</label>
+          </div>
+          <div class="col-9">
+            <div class="form-group">
+              <input type="text" class="form-control" [formControl]="pwd" id="password" name="password"
+                placeholder="Enter password" />
+              <small *ngIf="pwd.hasError('pattern') && pwd.dirty">Password must contain at least 8 characters in length
+                Lowercase
+                letters Uppercase letters Numbers Special characters</small>
             </div>
           </div>
+        </div>
 
-
-          <div class="row rowform align-items-center">
-            <div class="col-3">
-              <label for="passwordrep">Password repeat</label>
-            </div>
-            <div class="col-9">
-              <div class="form-group">
-                <input type="text" class="form-control" id="passwordrep" name="passwordrep"
-                  placeholder="Repeat password" />
-              </div>
+        <div class="row rowform align-items-center">
+          <div class="col-3">
+            <label for="passwordrep">Password repeat</label>
+          </div>
+          <div class="col-9">
+            <div class="form-group">
+              <input type="text" class="form-control" id="passwordrep" name="passwordrep"
+                placeholder="Repeat password" />
+              <!-- <small
+                *ngIf="
+                  doublecheck_pwd.hasError('doublecheck_pwd') && !pwd.invalid
+                "
+                >pwd must be the same as above</small
+              >-->
             </div>
           </div>
+        </div>
 
-
-
-
-
-          <div class="row rowform">
-            <div class="col-3">
-              <label for="inputdni">DNI</label>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputdni" name="dni" placeholder="Enter DNI" onkeyup=""
-                  maxlength="9" />
-              </div>
-            </div>
-            <div class="col-3" id="DNIletter"></div>
-
+        <div class="row rowform">
+          <div class="col-3">
+            <label for="inputdni">DNI</label>
           </div>
-          <div class="row rowform">
-            <div class="col-3">
-              <label for="inputbirthday">Birthday</label>
-            </div>
-            <div class="col-5">
-              <div class="form-group">
-                <input type="date" class="form-control" id="inputbirthday" name="age" placeholder="Enter birth"
-                  onchange="" onkeyup="" data-date-end-date="0d" />
-              </div>
-            </div>
-            <div class="col-4" id="ageresult"></div>
-          </div>
-          <div class="row rowform">
-            <div class="col-3">
-              <label for="inputcar">Car Plate</label>
-            </div>
-            <div class="col-5">
-              <div class="form-group">
-                <input type="text" class="form-control" id="inputcar" name="carplate" placeholder="Enter car plate" />
-                <div class="col-4"></div>
-              </div>
+          <div class="col-6">
+            <div class="form-group">
+              <input type="text" class="form-control" [formControl]="dni" id="inputdni" name="dni"
+                placeholder="Enter DNI" onkeyup="" maxlength="9" />
+              <small *ngIf="dni.hasError('required') && dni.dirty">This field is required</small>
+              <small *ngIf="dni.hasError('dni') && dni.dirty">Not a valid dni</small>
             </div>
           </div>
-          <div class="row rowform">
-            <div class="col-3">
-              <label for="inputenv">Environment class</label>
-            </div>
-            <div class="col-5">
-              <div class="form-group">
-
-                <select class="form-control" onchange="" id="inputenv" name="envclass">
-                  <option value="invalid" class="disabled">-- Select class --</option>
-
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="ECO">ECO</option>
-                  <option value="0">0</option>
-                </select>
-              </div>
-
-            </div>
-            <div class="col-4" id="carpercentage"></div>
+          <div class="col-3" id="DNIletter"></div>
+        </div>
+        <div class="row rowform">
+          <div class="col-3">
+            <label for="inputbirthday">Birthday</label>
           </div>
-
-
-          <div class="row rowform">
-            <div class="col-3">
-            </div>
-            <div class="col-9">
-              <button type="submit" id="buscar" class="btn btn-info">Submit</button>
-            </div>
-
-
-          </div>
-
-          <br>
-          <div class="row">
-            <div class="col-3">
-            </div>
-            <div class="col-3">
-              <button type="button" class="btn btn-info" (click)="calculatepricelist()" data-toggle="collapse"
-                data-target="#pricelist">Show price list</button>
-
-            </div>
-            <div id="pricelist" class="collapse col-6">
+          <div class="col-5">
+            <div class="form-group">
+              <input type="date" class="form-control" id="inputbirthday" [formControl]="age" name="age"
+                placeholder="Enter birth" onchange="" onkeyup="" data-date-end-date="0d" />
+              <small *ngIf="age.hasError('verifyage_error') && age.dirty">Invalid birthdate</small>
             </div>
           </div>
+          <div class="col-4" id="ageresult"></div>
+        </div>
+        <div class="row rowform">
+          <div class="col-3">
+            <label for="inputcar">Car Plate</label>
+          </div>
+          <div class="col-5">
+            <div class="form-group">
+              <input type="text" class="form-control" [formControl]="carplate" id="inputcar" name="carplate"
+                placeholder="Enter car plate" />
+              <small *ngIf="
+                  carplate.hasError('verifycarplate_error') && carplate.dirty
+                ">Invalid car plate</small>
+              <div class="col-4"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row rowform">
+          <div class="col-3">
+            <label for="inputenv">Environment class</label>
+          </div>
+          <div class="col-5">
+            <div class="form-group">
+              <select class="form-control" onchange="" id="inputenv" name="envclass">
+                <option value="invalid" class="disabled">
+                  -- Select class --
+                </option>
 
-        </form>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="ECO">ECO</option>
+                <option value="0">0</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-4" id="carpercentage"></div>
+        </div>
+
+        <div class="row rowform">
+          <div class="col-3"></div>
+          <div class="col-9">
+            <button type="submit"
+              [disabled]="emailCtrl.invalid || dni.invalid || carplate.invalid || pwd.invalid || age.invalid || name.invalid || surname.invalid"
+              id="buscar" class="btn btn-info">
+              Submit
+            </button>
+          </div>
+        </div>
+
+        <br />
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-3">
+            <button type="button" class="btn btn-info" (click)="calculatepricelist()" data-toggle="collapse"
+              data-target="#pricelist">
+              Show price list
+            </button>
+          </div>
+          <div #pricelist class="collapse col-6"></div>
+        </div>
+
+        <!--</form>-->
       </section>
     </section>
   </section>

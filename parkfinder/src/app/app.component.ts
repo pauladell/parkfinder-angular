@@ -22,27 +22,30 @@ export type client_type = {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Park finder';
+  //IsLoggedIN:equals 'true'/'false'/'signup'. It's updated at the "updateLogIn" function with input information from nav.component when the cliente clicks the nav.component buttons
   IsLoggedIn: string = 'false';
-  where: string = 'index';
+  //Variable updated at the "updateCurrentPage" function with input information from directory.component
+  where: string = 'Index';
+  //Cliente input information
   cliente: client_type = {
-    inputname: 'Palomaaaa',
+    inputname: 'Paloma',
     inputsurname: 'Auladell',
     inputdni: '49081483N',
     inputbirthday: '1996-07-26',
     inputcar: 'BMW',
     inputenv: EnvClass.Eco,
   };
+
+  //Called when a click event occurs on one of the nav.component buttons
   updateLogIn(value: string) {
     this.IsLoggedIn = value;
     if (value == 'false') {
-      this.where = 'index';
+      this.where = 'Index';
     }
   }
+  //Called when a click event occurs on one of the diretory.component buttons
+
   updateCurrentPage(value: string) {
     this.where = value;
-  }
-  update_parent(cliente: client_type) {
-    this.cliente = cliente;
   }
 }

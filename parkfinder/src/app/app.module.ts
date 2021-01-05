@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
@@ -25,7 +26,7 @@ import { SignupComponent } from './signup/signup.component';
     ProfileComponent,
     SignupComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
